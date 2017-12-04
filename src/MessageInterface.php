@@ -3,6 +3,7 @@
 namespace Psr\Http\Message;
 
 /**
+ * 抽象出request和response中共同的部分。包括：协议版本，header，body
  * HTTP messages consist of requests from a client to a server and responses
  * from a server to a client. This interface defines the methods common to
  * each.
@@ -85,6 +86,9 @@ interface MessageInterface
      *
      * If the header does not appear in the message, this method MUST return an
      * empty array.
+     *
+     * HTTP协议，一个header头的value可以有多个。在发送的时候，这些value往往用逗号连接起来，比如
+     * Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,
      *
      * @param string $name Case-insensitive header field name.
      * @return string[] An array of string values as provided for the given
